@@ -1,0 +1,2 @@
+run app.py 
+then run ngrok http http://192.168.252.102:7860

@@ -1,0 +1,26 @@
+from flask import Flask, render_template, send_file
+import subprocess
+
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+@app.route('/run-nafnet')
+def run_nafnet():
+    try:
+        subprocess.run(
+            [
+                'python', 'NAFNet/demo.py', '-opt', 'NAFNet/options/test/REDS/NAFNet-width64.yml',
+                '--input_path', 'NAFNet/demo/WhatsApp Image 2025-02-17 at 20.50.10_32b56ef5.png',
+                '--output_path', 'NAFNet/.eggs/output.png'
+            ],
+            check=True
+        )
+        return send_file('NAFNet/.eggs/output.png', mimetype='image/png')
+    except Exception as e:
+        return f"Error: {str(e)}"
+
+if __name__ == '__main__':
+    app.run(debug=True)

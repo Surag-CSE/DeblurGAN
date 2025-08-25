@@ -1,0 +1,4 @@
+*.ext filter=lfs diff=lfs merge=lfs -text
+*.NAFNet filter=lfs diff=lfs merge=lfs -text
+NAFNet filter=lfs diff=lfs merge=lfs -text
+C:/Users/Administrator/Desktop/NAFNetModel/NAFNet filter=lfs diff=lfs merge=lfs -text
